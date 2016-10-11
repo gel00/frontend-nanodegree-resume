@@ -1,5 +1,6 @@
-var formattedName = "Gabor Gellai",
-    formattedRole = "Web Developer";
-HTMLheaderName = HTMLheaderName.replace("%data%", formattedName);
-HTMLheaderRole = HTMLheaderRole.replace("%data%", formattedRole);
-$("#main").prepend(HTMLheaderName + " " + HTMLheaderRole);
+var name = "Gabor Gellai",
+    role = "Web Developer",
+    formattedName = HTMLheaderName.replace("%data%", name),
+    formattedRole = HTMLheaderRole.replace("%data%", role);
+
+$("#main").prepend(formattedName + " " + formattedRole);
