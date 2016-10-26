@@ -91,20 +91,18 @@ if(work.jobs.length) {
     work.jobs.forEach(
         function(job){
             $("#workExperience").append(HTMLworkStart);
-            var $current = $(".work-entry:last");
-
             var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
             var formattedWorkTitle = HTMLworkTitle.replace("%data%", job.title);
             var formattedWorkLocation = HTMLworkLocation.replace("%data%", job.location);
             var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
             var formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
 
-            $current
-                .append(formattedEmployer +
-                       formattedWorkTitle +
-                       formattedWorkLocation +
-                       formattedWorkDates +
-                       formattedWorkDescription);
+            $(".work-entry:last").append(
+                formattedEmployer +
+                formattedWorkTitle +
+                formattedWorkLocation +
+                formattedWorkDates +
+                formattedWorkDescription);
         }
     );
 }
