@@ -116,3 +116,16 @@ $("#topContacts")
     .prepend(formattedLocation)
     .after(formattedBioPic)
     .after(formattedWelcomeMsg);
+
+function inName(str) {
+    var names = str.split(" ");
+    var formattedName = "";
+    names.forEach(function(name, i){
+        if (i) {
+            formattedName += " " + name.toUpperCase();
+        } else {
+            formattedName += name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        }
+    });
+    return formattedName;
+}
