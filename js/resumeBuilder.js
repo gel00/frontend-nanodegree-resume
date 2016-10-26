@@ -78,6 +78,13 @@ var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 $("#header")
     .prepend(formattedRole)
     .prepend(formattedName);
+if(bio.skills.length) {
+    $("#header").append(HTMLskillsStart);
+    for (i = 0; i < bio.skills.length; i++) {
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+        $("#skills").append(formattedSkill);
+    }
+}
 
 $("#topContacts")
     .prepend(formattedMobile)
