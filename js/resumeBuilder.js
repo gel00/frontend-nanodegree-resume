@@ -80,10 +80,12 @@ $("#header")
     .prepend(formattedName);
 if(bio.skills.length) {
     $("#header").append(HTMLskillsStart);
-    for (i = 0; i < bio.skills.length; i++) {
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-        $("#skills").append(formattedSkill);
-    }
+    bio.skills.forEach(
+        function(skill){
+            var formattedSkill = HTMLskills.replace("%data%", skill);
+            $("#skills").append(formattedSkill);
+        }
+    );
 }
 
 $("#topContacts")
