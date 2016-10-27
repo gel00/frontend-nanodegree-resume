@@ -35,14 +35,15 @@ var work = {
     }]
 };
 
-var prfojects = [{
-    "title": "Relax Futár",
-    "dates": 2015,
-    "description": "I created a modern portfolio page for a massager.",
-    "images": [
-        "images/projects/relax/p_RF_1.jpg", "images/projects/relax/p_RF_2.jpg", "images/projects/relax/p_RF_3.jpg"
-    ]
-}];
+var projects = {
+    "jobs" : [{
+        "title": "Relax Futár",
+        "dates": 2015,
+        "description": "I created a modern portfolio page for a massager.",
+        "images": [
+            "images/projects/relax/p_RF_1.jpg", "images/projects/relax/p_RF_2.jpg", "images/projects/relax/p_RF_3.jpg"
+    ]}]
+};
 
 var education = [{
     "schools": [{
@@ -129,3 +130,23 @@ function inName(str) {
     });
     return formattedName;
 }
+
+projects.jobs.forEach(
+    function(job){
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", job.title);
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", job.dates);
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", job.description);
+        var formattedProjectImages = "";
+        job.images.forEach(function(image){
+            formattedProjectImages += HTMLprojectImage.replace("%data%", image);
+        });
+
+        $(".project-entry:last").append(
+            formattedProjectTitle +
+            formattedProjectDates +
+            formattedProjectDescription+
+            formattedProjectImages);
+    }
+);
