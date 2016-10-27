@@ -118,7 +118,7 @@ $("#topContacts")
     .after(formattedWelcomeMsg);
 
 function inName(str) {
-    var names = str.split(" ");
+    var names = str.trim().split(" ");
     var formattedName = "";
     names.forEach(function(name, i){
         if (i) {
