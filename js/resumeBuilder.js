@@ -18,7 +18,7 @@ var education = {
         "name": "Univercity of Szeged",
         "location": "Szeged",
         "degree": "BA",
-        "majors": "Media Informatics",
+        "majors": ["Media Informatics"],
         "dates": "2009-2012",
         "url": "http://www.u-szeged.hu/"
     }],
@@ -160,7 +160,7 @@ education.display = function() {
     var formattedSchoolName,
         formattedSchoolLocation,
         formattedSchoolDegree,
-        formattedSchoolMajors,
+        formattedSchoolMajors = "",
         formattedSchoolDates,
         formattedOnlineTitle,
         formattedOnlineSchool,
@@ -173,7 +173,9 @@ education.display = function() {
             .replace("#", school.url);
         formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
         formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
-        formattedSchoolMajors = HTMLschoolMajor.replace("%data%", school.majors);
+        school.majors.forEach(function(major){
+            formattedSchoolMajors += HTMLschoolMajor.replace("%data%", major);
+        });
         formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
         $education
             .append(HTMLschoolStart)
